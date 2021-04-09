@@ -20,21 +20,16 @@
     </div>
     <ul className="list">
       <li
-          v-for="comment in comentsToShow"
+          v-for="comment in comments"
           :key="comment.id"
           className="list-item"
       >
         <div>
-          <p><strong>{{ comments[comment].email }}</strong></p>
-          <small>{{ comments[comment].body }}</small>
+          <p><strong>{{ comment.email }}</strong></p>
+          <small>{{ comment.body }}</small>
         </div>
       </li>
     </ul>
-    <button
-        class="btn"
-        @click="comentsToShow += 5"
-        style="margin: 10px 0"
-    >Load more</button>
   </div>
 </template>
 
@@ -43,11 +38,6 @@ export default {
   name: "ResumeComments",
   props: ['comments'],
   emits: ['load', 'close'],
-  data() {
-    return {
-      comentsToShow: 5
-    }
-  },
 }
 </script>
 
